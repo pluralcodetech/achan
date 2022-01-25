@@ -1,3 +1,3 @@
-const API = 'https://watchout.ng/portal/achan/passenger/apis/';
+const API = 'https://pluralcodemyonlineshop.herokuapp.com/api/users/';
 
 export {API};
