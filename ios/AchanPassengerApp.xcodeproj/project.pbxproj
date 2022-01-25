@@ -9,27 +9,9 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* AchanPassengerAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AchanPassengerAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		C669E8E17DBD4E66A31D0B1C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97A4B7DAA4054F35B8E771D0 /* Poppins-Bold.ttf */; };
-		C1CCAABB9E0B4A2AB55E4F91 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73C15A47A4FB41E887AEFFB7 /* Poppins-Regular.ttf */; };
-		AAE97895256F472292BCE8E1 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65B6F05FA3C04ED4BFCFAED7 /* AntDesign.ttf */; };
-		1A2CBA590E9E4AD2B16B9579 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D681B89BA0E449B3AC117E82 /* Entypo.ttf */; };
-		ACC5FE690DB94AAA98DE3861 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF9A17811FE94D238EEF2903 /* EvilIcons.ttf */; };
-		22A5A8CBF9D6472299C728C8 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7AEFFFDEF1A0475A83057AFB /* Feather.ttf */; };
-		157DD8470D254FDAAC0C8929 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D5D550FD9442A82C19A93 /* FontAwesome.ttf */; };
-		032BBC7C0C2746FB82CFDC28 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6802EB2B1B894540A6215E8E /* FontAwesome5_Brands.ttf */; };
-		D9F30A76BE50436B886C21CB /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0845206FEA94150AA928CC9 /* FontAwesome5_Regular.ttf */; };
-		78F7374D0FCB44F5BAB92E51 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2DD0033A5C34A33857B8DF1 /* FontAwesome5_Solid.ttf */; };
-		D9D57C211A234E928995C160 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4113FB2ECFAB4401A77BB6DF /* Fontisto.ttf */; };
-		6B8830B979C541ED96C8685E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8A4B4D429145778741FC48 /* Foundation.ttf */; };
-		CC027BF7575241E8863029B8 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DCAF379B0174921AA6726CB /* Ionicons.ttf */; };
-		8A9EA9027BA2478185598144 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80399748BFF448709308B53A /* MaterialCommunityIcons.ttf */; };
-		3C2FBC0593D14D298DA434B0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 945BAFACC5534C6C8AB73425 /* MaterialIcons.ttf */; };
-		531901902801488E9A5BADCF /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8E2C38A1C5D4B22BF93D075 /* Octicons.ttf */; };
-		7A6A8302614B47E0A3A3A29E /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97EE27CD295C4B0EBD9C3735 /* SimpleLineIcons.ttf */; };
-		9A839B8E89E1460997CA5E6B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 682565AAE3204A7F938A2C74 /* Zocial.ttf */; };
+		86A6C0A0C60E3171DE987833 /* libPods-AchanPassengerApp-AchanPassengerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD600C3EB4D22297D157DEA /* libPods-AchanPassengerApp-AchanPassengerAppTests.a */; };
+		9732211BC8EC134881EE8376 /* libPods-AchanPassengerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8E92220ADC0086E597426 /* libPods-AchanPassengerApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,26 +34,32 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AchanPassengerApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AchanPassengerApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AchanPassengerApp/main.m; sourceTree = "<group>"; };
+		20E4EC2B5D218ADFF3843558 /* Pods-AchanPassengerApp-AchanPassengerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AchanPassengerApp-AchanPassengerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4113FB2ECFAB4401A77BB6DF /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		4DCAF379B0174921AA6726CB /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		65B6F05FA3C04ED4BFCFAED7 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		6802EB2B1B894540A6215E8E /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		682565AAE3204A7F938A2C74 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		6C8A4B4D429145778741FC48 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		738CE8F62531BD5D8D0EC57C /* Pods-AchanPassengerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AchanPassengerApp.release.xcconfig"; path = "Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp.release.xcconfig"; sourceTree = "<group>"; };
+		73C15A47A4FB41E887AEFFB7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../app/src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		7AEFFFDEF1A0475A83057AFB /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		80399748BFF448709308B53A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AchanPassengerApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84D8E92220ADC0086E597426 /* libPods-AchanPassengerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AchanPassengerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		945BAFACC5534C6C8AB73425 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		97A4B7DAA4054F35B8E771D0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../app/src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		97EE27CD295C4B0EBD9C3735 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		A2DD0033A5C34A33857B8DF1 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		C6092929CFDFBC09619ECC69 /* Pods-AchanPassengerApp-AchanPassengerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AchanPassengerApp-AchanPassengerAppTests.release.xcconfig"; path = "Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C67D5D550FD9442A82C19A93 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		C8E2C38A1C5D4B22BF93D075 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		CAD600C3EB4D22297D157DEA /* libPods-AchanPassengerApp-AchanPassengerAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AchanPassengerApp-AchanPassengerAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0845206FEA94150AA928CC9 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		D681B89BA0E449B3AC117E82 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		97A4B7DAA4054F35B8E771D0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; name = "Poppins-Bold.ttf"; path = "../app/src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		73C15A47A4FB41E887AEFFB7 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; name = "Poppins-Regular.ttf"; path = "../app/src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		65B6F05FA3C04ED4BFCFAED7 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D681B89BA0E449B3AC117E82 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FF9A17811FE94D238EEF2903 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7AEFFFDEF1A0475A83057AFB /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C67D5D550FD9442A82C19A93 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6802EB2B1B894540A6215E8E /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D0845206FEA94150AA928CC9 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A2DD0033A5C34A33857B8DF1 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4113FB2ECFAB4401A77BB6DF /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6C8A4B4D429145778741FC48 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4DCAF379B0174921AA6726CB /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		80399748BFF448709308B53A /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		945BAFACC5534C6C8AB73425 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C8E2C38A1C5D4B22BF93D075 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		97EE27CD295C4B0EBD9C3735 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		682565AAE3204A7F938A2C74 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F76E63FCAE6D0C43A1AAC2E4 /* Pods-AchanPassengerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AchanPassengerApp.debug.xcconfig"; path = "Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FF9A17811FE94D238EEF2903 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A6C0A0C60E3171DE987833 /* libPods-AchanPassengerApp-AchanPassengerAppTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9732211BC8EC134881EE8376 /* libPods-AchanPassengerApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,60 +99,8 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* AchanPassengerApp */ = {
-			isa = PBXGroup;
-			children = (
-				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
-				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
-				13B07FB61A68108700A75B9A /* Info.plist */,
-				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
-				13B07FB71A68108700A75B9A /* main.m */,
-			);
-			name = AchanPassengerApp;
-			sourceTree = "<group>";
-		};
-		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		83CBB9F61A601CBA00E9B192 = {
-			isa = PBXGroup;
-			children = (
-				13B07FAE1A68108700A75B9A /* AchanPassengerApp */,
-				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* AchanPassengerAppTests */,
-				83CBBA001A601CBA00E9B192 /* Products */,
-				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				0C4638E0F4DA4F92B71CCE54 /* Resources */,
-			);
-			indentWidth = 2;
-			sourceTree = "<group>";
-			tabWidth = 2;
-			usesTabs = 0;
-		};
-		83CBBA001A601CBA00E9B192 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				13B07F961A680F5B00A75B9A /* AchanPassengerApp.app */,
-				00E356EE1AD99517003FC87E /* AchanPassengerAppTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0C4638E0F4DA4F92B71CCE54 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				97A4B7DAA4054F35B8E771D0 /* Poppins-Bold.ttf */,
 				73C15A47A4FB41E887AEFFB7 /* Poppins-Regular.ttf */,
@@ -185,7 +123,72 @@
 			);
 			name = Resources;
 			sourceTree = "<group>";
-			path = "";
+		};
+		13B07FAE1A68108700A75B9A /* AchanPassengerApp */ = {
+			isa = PBXGroup;
+			children = (
+				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				13B07FB61A68108700A75B9A /* Info.plist */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				13B07FB71A68108700A75B9A /* main.m */,
+			);
+			name = AchanPassengerApp;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				84D8E92220ADC0086E597426 /* libPods-AchanPassengerApp.a */,
+				CAD600C3EB4D22297D157DEA /* libPods-AchanPassengerApp-AchanPassengerAppTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		480AAA41C19D87A80169CAB2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F76E63FCAE6D0C43A1AAC2E4 /* Pods-AchanPassengerApp.debug.xcconfig */,
+				738CE8F62531BD5D8D0EC57C /* Pods-AchanPassengerApp.release.xcconfig */,
+				20E4EC2B5D218ADFF3843558 /* Pods-AchanPassengerApp-AchanPassengerAppTests.debug.xcconfig */,
+				C6092929CFDFBC09619ECC69 /* Pods-AchanPassengerApp-AchanPassengerAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* AchanPassengerApp */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* AchanPassengerAppTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				0C4638E0F4DA4F92B71CCE54 /* Resources */,
+				480AAA41C19D87A80169CAB2 /* Pods */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* AchanPassengerApp.app */,
+				00E356EE1AD99517003FC87E /* AchanPassengerAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -194,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AchanPassengerAppTests" */;
 			buildPhases = (
+				7D0F314976373CFB01CF43FB /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				CB1C6046EE4AF3456C007E3A /* [CP] Embed Pods Frameworks */,
+				4A2904C33C3CF44C42DC692C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,11 +218,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AchanPassengerApp" */;
 			buildPhases = (
+				18FB1C90997CB964A59E2796 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
-				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				9BC91684C953BDA7B3E7CFFC /* [CP] Embed Pods Frameworks */,
+				08D6A53023839C654F6AC44C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,33 +279,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		13B07F8E1A680F5B00A75B9A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				C669E8E17DBD4E66A31D0B1C /* Poppins-Bold.ttf in Resources */,
-				C1CCAABB9E0B4A2AB55E4F91 /* Poppins-Regular.ttf in Resources */,
-				AAE97895256F472292BCE8E1 /* AntDesign.ttf in Resources */,
-				1A2CBA590E9E4AD2B16B9579 /* Entypo.ttf in Resources */,
-				ACC5FE690DB94AAA98DE3861 /* EvilIcons.ttf in Resources */,
-				22A5A8CBF9D6472299C728C8 /* Feather.ttf in Resources */,
-				157DD8470D254FDAAC0C8929 /* FontAwesome.ttf in Resources */,
-				032BBC7C0C2746FB82CFDC28 /* FontAwesome5_Brands.ttf in Resources */,
-				D9F30A76BE50436B886C21CB /* FontAwesome5_Regular.ttf in Resources */,
-				78F7374D0FCB44F5BAB92E51 /* FontAwesome5_Solid.ttf in Resources */,
-				D9D57C211A234E928995C160 /* Fontisto.ttf in Resources */,
-				6B8830B979C541ED96C8685E /* Foundation.ttf in Resources */,
-				CC027BF7575241E8863029B8 /* Ionicons.ttf in Resources */,
-				8A9EA9027BA2478185598144 /* MaterialCommunityIcons.ttf in Resources */,
-				3C2FBC0593D14D298DA434B0 /* MaterialIcons.ttf in Resources */,
-				531901902801488E9A5BADCF /* Octicons.ttf in Resources */,
-				7A6A8302614B47E0A3A3A29E /* SimpleLineIcons.ttf in Resources */,
-				9A839B8E89E1460997CA5E6B /* Zocial.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -314,6 +295,118 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		08D6A53023839C654F6AC44C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18FB1C90997CB964A59E2796 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AchanPassengerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A2904C33C3CF44C42DC692C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D0F314976373CFB01CF43FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AchanPassengerApp-AchanPassengerAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BC91684C953BDA7B3E7CFFC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp/Pods-AchanPassengerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB1C6046EE4AF3456C007E3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AchanPassengerApp-AchanPassengerAppTests/Pods-AchanPassengerApp-AchanPassengerAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -367,6 +460,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20E4EC2B5D218ADFF3843558 /* Pods-AchanPassengerApp-AchanPassengerAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -393,6 +487,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6092929CFDFBC09619ECC69 /* Pods-AchanPassengerApp-AchanPassengerAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -416,6 +511,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F76E63FCAE6D0C43A1AAC2E4 /* Pods-AchanPassengerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -441,6 +537,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 738CE8F62531BD5D8D0EC57C /* Pods-AchanPassengerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -495,6 +592,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -559,6 +657,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
