@@ -1,10 +1,9 @@
 import React from 'react';
 import {
   View,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -16,10 +15,11 @@ import Card from '../components/Card';
 import Header from '../components/Layouts/Header';
 import ListItem from '../components/ListItem';
 import Text from '../components/Text';
+import {useIsFocused} from '@react-navigation/native';
 
 const MenuBtn = ({item, navigation}) => {
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={{marginHorizontal: 20}}>
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={() => navigation.navigate(item?.screen)}
@@ -47,20 +47,33 @@ const MenuBtn = ({item, navigation}) => {
 };
 
 const HomeScreen = ({navigation}) => {
+  const isFocused = useIsFocused();
+  const {data} = useSelector(state => state.userData);
+
   const menuList = [
     {name: 'Profile', screen: 'ProfileScreen', icon: 'account-outline'},
     {name: 'Book', screen: 'BookRideScreen', icon: 'taxi'},
-    {name: 'Top Up', screen: 'TopUpScreen', icon: 'credit-card-outline'},
   ];
 
-  const {data} = useSelector(state => state.userData);
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true);
+    await getAndUpdateUserData();
+    setRefreshing(false);
+  }, []);
+
   React.useEffect(() => {
     getAndUpdateUserData();
-  }, []);
+  }, [isFocused]);
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.light}}>
       <Header home />
-      <ScrollView style={{padding: 20}}>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        style={{padding: 20}}>
         <Card acoount_balance={data?.wallet} />
         <Text
           style={{
@@ -70,7 +83,7 @@ const HomeScreen = ({navigation}) => {
           }}>
           Hello {data?.name}
         </Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
           {menuList.map((item, index) => (
             <MenuBtn item={item} key={index} navigation={navigation} />
           ))}
@@ -82,8 +95,16 @@ const HomeScreen = ({navigation}) => {
             </Text>
           ) : (
             <FlatList
+              contentContainerStyle={{paddingBottom: 50}}
               data={data?.trip_details}
-              renderItem={({item}) => <ListItem item={item} />}
+              renderItem={({item}) => (
+                <ListItem
+                  onPress={() => {
+                    navigation.navigate('BookRideDetailsScreen', item?.trip_id);
+                  }}
+                  item={item}
+                />
+              )}
             />
           )}
         </View>
@@ -92,12 +113,4 @@ const HomeScreen = ({navigation}) => {
   );
 };
 
-const style = StyleSheet.create({
-  image: {
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    resizeMode: 'stretch',
-  },
-});
 export default HomeScreen;

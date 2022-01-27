@@ -13,7 +13,7 @@ const SplashScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Image style={{height: 180, width: 180}} source={assets.Logo} />
+      <Image style={{height: 150, width: 150}} source={assets.Logo} />
     </SafeAreaView>
   );
 };

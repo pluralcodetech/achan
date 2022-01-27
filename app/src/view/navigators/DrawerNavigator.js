@@ -41,6 +41,8 @@ const CustomDrawerContent = props => {
       </View>
       <DrawerItemList {...props} />
       <DrawerItem
+        activeTintColor={COLORS.dark}
+        inactiveTintColor={COLORS.dark}
         onPress={() => logoutUser(navigation)}
         icon={({size}) => <Icon name="logout" size={size} />}
         label="Logout"
@@ -59,7 +61,6 @@ const DrawerNavigator = () => {
           backgroundColor: COLORS.background,
         },
         drawerLabelStyle: {
-          fontFamily: FONTS.regular,
           left: -20,
         },
         drawerActiveTintColor: COLORS.primary,

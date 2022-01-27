@@ -15,6 +15,7 @@ import Button from '../../components/buttons/Button';
 import assets from '../../../conts/assets';
 import CustomInput from '../../components/inputs/CustomInput';
 import fetchRequest from '../../../helpers/fetchRequest';
+import countryCode from '../../../conts/countryCode';
 
 const SignInScreen = ({navigation}) => {
   const [state, setState] = React.useState({
@@ -22,6 +23,8 @@ const SignInScreen = ({navigation}) => {
     showPreloader: false,
   });
   const [error, setError] = React.useState({});
+  const [selectedCountryCode, setSelectedCountryCode] = React.useState('+234');
+
   const signIn = async () => {
     //Validate individual input
     if (!state.phone?.trim()) {
@@ -33,16 +36,22 @@ const SignInScreen = ({navigation}) => {
 
     if (state.phone.trim()) {
       setState(prevState => ({...prevState, showPreloader: true}));
+      console.log(selectedCountryCode);
 
       try {
-        const data = await fetchRequest('otp.php', state);
-        if (data.statuscode == '00') {
-          console.log(data);
+        const response = await fetchRequest({
+          path: '/otp.php',
+          data: {...state, countrycode: selectedCountryCode},
+        });
+        console.log(response, 'Ressss');
+        if (response?.statuscode == '00') {
           //Send user to otp screen
-          navigation.navigate('OtpScreen', {phone: state.phone});
+          navigation.navigate('OtpScreen', response);
         } else {
-          Alert.alert('Error', data.status);
+          Alert.alert('Error', response?.status);
         }
+      } catch (error) {
+        console.log(error);
       } finally {
         setState(prevState => ({...prevState, showPreloader: false}));
       }
@@ -53,10 +62,9 @@ const SignInScreen = ({navigation}) => {
     <SafeAreaView
       style={{
         backgroundColor: COLORS.background,
-        paddingHorizontal: 20,
       }}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={{alignItems: 'center'}}>
+        <View style={{alignItems: 'center', paddingHorizontal: 20}}>
           <PreLoader visible={state.showPreloader} />
           <Image source={assets.Logo} style={style.image} />
           <Text style={{fontSize: 18}}>Login</Text>
@@ -73,12 +81,26 @@ const SignInScreen = ({navigation}) => {
 
           {/* Input and button container */}
           <View style={{marginTop: 40, width: '100%'}}>
-            <CustomInput
-              onChangeText={text => setState({...state, phone: text})}
-              placeholder="Phone Number"
-              error={error.phone}
-              onFocus={() => setError({...error, phone: null})}
-            />
+            <View style={{flexDirection: 'row', width: '100%'}}>
+              <CustomInput
+                small
+                style={{width: 50, flex: 0, marginRight: 5}}
+                value={selectedCountryCode}
+                onFocus={() => {
+                  navigation.navigate('ListScreen', {
+                    items: countryCode,
+                    onChange: value => setSelectedCountryCode(value?.dial_code),
+                  });
+                }}
+              />
+              <CustomInput
+                keyboardType="numeric"
+                onChangeText={text => setState({...state, phone: text})}
+                placeholder="Phone Number"
+                error={error.phone}
+                onFocus={() => setError({...error, phone: null})}
+              />
+            </View>
 
             {/* Continue button section */}
             <Button title="CONTINUE" onPress={signIn} />

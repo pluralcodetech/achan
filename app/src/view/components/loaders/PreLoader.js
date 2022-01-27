@@ -1,8 +1,7 @@
 import React from 'react';
-import {Modal, View, StyleSheet, ActivityIndicator} from 'react-native';
+import {Modal, View, ActivityIndicator} from 'react-native';
 import Text from '../Text';
 import COLORS from '../../../styles/colors';
-import FONTS from '../../../conts/fonts';
 
 const PreLoader = ({visible, message = 'Loading...'}) => {
   return (

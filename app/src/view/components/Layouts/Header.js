@@ -5,7 +5,7 @@ import assets from '../../../conts/assets';
 import COLORS from '../../../styles/colors';
 import {useNavigation} from '@react-navigation/core';
 
-const Header = ({home}) => {
+const Header = ({home, rightButton = true}) => {
   const navigation = useNavigation();
 
   return (
@@ -28,12 +28,14 @@ const Header = ({home}) => {
         />
       )}
 
-      <Icon
-        name="menu"
-        size={28}
-        color={COLORS.primary}
-        onPress={navigation.toggleDrawer}
-      />
+      {rightButton && (
+        <Icon
+          name="menu"
+          size={28}
+          color={COLORS.primary}
+          onPress={navigation.toggleDrawer}
+        />
+      )}
     </View>
   );
 };

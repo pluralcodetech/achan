@@ -16,8 +16,11 @@ import fetchRequest from '../../helpers/fetchRequest';
 import COLORS from '../../styles/colors';
 import Button from '../components/buttons/Button';
 import CustomInput from '../components/inputs/CustomInput';
+import CustomPicker from '../components/inputs/CustomPicker.';
 import Header from '../components/Layouts/Header';
 import PreLoader from '../components/loaders/PreLoader';
+import listOfstates from '../../conts/listOfstates';
+import Text from '../components/Text';
 
 const ProfileScreen = ({navigation}) => {
   const {data} = useSelector(state => state.userData);
@@ -27,9 +30,12 @@ const ProfileScreen = ({navigation}) => {
   });
   const [error, setError] = React.useState({});
   const isFocused = navigation.isFocused();
+  const [selectedState, setSelectedState] = React.useState(data?.state);
 
   React.useEffect(() => {
+    console.log('focused');
     setState({...data, showPreloader: false});
+    setSelectedState(data?.state);
     setError({});
   }, [data, isFocused]);
 
@@ -55,7 +61,10 @@ const ProfileScreen = ({navigation}) => {
           medical_history: state?.medical_history,
           passenger_id: state.passenger_id,
         };
-        const response = await fetchRequest('update_profile.php', reqData);
+        const response = await fetchRequest({
+          path: 'update_profile.php',
+          data: reqData,
+        });
         console.log(response);
 
         if (response?.statuscode == '00') {
@@ -105,13 +114,19 @@ const ProfileScreen = ({navigation}) => {
                   setState(prevState => ({...prevState, email: text}))
                 }
               />
-              <CustomInput
-                placeholder="Address"
-                value={state?.address}
-                onChangeText={text =>
-                  setState(prevState => ({...prevState, address: text}))
-                }
-              />
+              <View>
+                <CustomInput
+                  placeholder="Select state"
+                  value={selectedState}
+                  onFocus={() => {
+                    navigation.navigate('ListScreen', {
+                      items: listOfstates,
+                      selectValue: setSelectedState,
+                    });
+                  }}
+                />
+              </View>
+
               <CustomInput
                 placeholder="City"
                 value={state?.city}
@@ -120,12 +135,13 @@ const ProfileScreen = ({navigation}) => {
                 }
               />
               <CustomInput
-                placeholder="State"
-                value={state?.state}
+                placeholder="Address"
+                value={state?.address}
                 onChangeText={text =>
-                  setState(prevState => ({...prevState, state: text}))
+                  setState(prevState => ({...prevState, address: text}))
                 }
               />
+
               <CustomInput
                 placeholder="Medical History"
                 textArea
@@ -143,12 +159,4 @@ const ProfileScreen = ({navigation}) => {
   );
 };
 
-const style = StyleSheet.create({
-  image: {
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    resizeMode: 'stretch',
-  },
-});
 export default ProfileScreen;

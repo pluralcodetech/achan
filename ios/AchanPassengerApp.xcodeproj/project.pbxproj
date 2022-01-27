@@ -10,6 +10,8 @@
 		00E356F31AD99517003FC87E /* AchanPassengerAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AchanPassengerAppTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		5A7B19C727A13ED900DEA0DE /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97A4B7DAA4054F35B8E771D0 /* Poppins-Bold.ttf */; };
+		5A7B19C827A13ED900DEA0DE /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73C15A47A4FB41E887AEFFB7 /* Poppins-Regular.ttf */; };
 		86A6C0A0C60E3171DE987833 /* libPods-AchanPassengerApp-AchanPassengerAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD600C3EB4D22297D157DEA /* libPods-AchanPassengerApp-AchanPassengerAppTests.a */; };
 		9732211BC8EC134881EE8376 /* libPods-AchanPassengerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8E92220ADC0086E597426 /* libPods-AchanPassengerApp.a */; };
 /* End PBXBuildFile section */
@@ -225,6 +227,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				9BC91684C953BDA7B3E7CFFC /* [CP] Embed Pods Frameworks */,
 				08D6A53023839C654F6AC44C /* [CP] Copy Pods Resources */,
+				5A7B19C627A13EBD00DEA0DE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +279,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A7B19C627A13EBD00DEA0DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A7B19C727A13ED900DEA0DE /* Poppins-Bold.ttf in Resources */,
+				5A7B19C827A13ED900DEA0DE /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,8 +626,8 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -672,8 +684,8 @@
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/usr/lib/swift",
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;

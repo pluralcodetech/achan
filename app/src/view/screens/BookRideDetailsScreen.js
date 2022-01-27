@@ -8,7 +8,6 @@ import {
   Alert,
   TouchableOpacity,
   Linking,
-  ActivityIndicator,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import COLORS from '../../styles/colors';
@@ -20,62 +19,71 @@ import PreLoader from '../components/loaders/PreLoader';
 import FONTS from '../../conts/fonts';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import formatPrice from '../../helpers/formatPrice';
+import TripDetailsCard from '../components/TripDetailsCard';
+import TripContactDetails from '../components/TripContactDetails';
+import TripCost from '../components/TripCost';
+import {useIsFocused} from '@react-navigation/native';
 
-const TripCost = ({details}) => {
-  return (
-    <View style={style.tripCostCon}>
-      <Text style={{textAlign: 'center', flex: 1}}>Trip Cost</Text>
-      {details?.driver_status?.toLowerCase?.() != 'complete' && (
-        <View>
-          <Text
-            style={{fontSize: 15, marginTop: 10, flex: 1, textAlign: 'center'}}>
-            Min Amount:
-            <Text
-              style={{
-                color: COLORS.primary,
-                fontFamily: FONTS.bold,
-              }}>
-              {' '}
-              NGN{formatPrice(details?.mincost)}
-            </Text>
-          </Text>
-          <Text style={{fontSize: 15, flex: 1, textAlign: 'center'}}>
-            Max Amount:
-            <Text
-              style={{
-                color: COLORS.blue,
-                fontFamily: FONTS.bold,
-              }}>
-              {' '}
-              NGN{formatPrice(details?.maxcost)}
-            </Text>
-          </Text>
-        </View>
-      )}
-      {details?.driver_status?.toLowerCase?.() == 'complete' && (
-        <Text
-          style={{
-            fontSize: 22,
-            flex: 1,
-            textAlign: 'center',
-            fontFamily: FONTS.bold,
-          }}>
-          NGN{formatPrice(details?.total)}
-        </Text>
-      )}
-    </View>
-  );
+const cancel = (state, navigation, setState, setTimeoutRef) => {
+  const cancel = async () => {
+    setState(prevState => ({...prevState, showPreloader: true}));
+    try {
+      const response = await fetchRequest({
+        path: 'cancel_trip.php',
+        data: state,
+      });
+      if (response.statuscode == '00') {
+        navigation.navigate('BookRideScreen');
+        Alert.alert('Success', 'Trip cancelled');
+        clearTimeout(setTimeoutRef.current);
+      } else {
+        Alert.alert('Error', response?.status);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setState(prevState => ({...prevState, showPreloader: false}));
+    }
+  };
+
+  Alert.alert('Confirm', 'Cancel trip?', [
+    {text: 'Yes', onPress: cancel},
+    {text: 'No'},
+  ]);
 };
 
-const DriverDetailsCard = ({details, maplink}) => {
-  return (
-    <View style={style.card}>
-      <Image
-        style={style.illusImage}
-        source={require('../../assets/images/taxi.png')}
+const ShowButton = ({
+  status,
+  driverStatus,
+  state,
+  navigation,
+  setTimeoutRef,
+  tripDetails,
+  setState,
+}) => {
+  if (
+    !tripDetails?.driver_details?.driver_id ||
+    driverStatus == 'pending' ||
+    (tripDetails?.driver_details?.driver_id &&
+      driverStatus == 'active' &&
+      status == 'waiting')
+  ) {
+    return (
+      <Button
+        onPress={() => cancel(state, navigation, setState, setTimeoutRef)}
+        title="Cancel Trip"
+        style={{backgroundColor: COLORS.red}}
       />
+    );
+  }
+  return null;
+};
+
+const DriverDetailsCard = ({details, maplink, status}) => {
+  return (
+    <TripDetailsCard style={style.card}>
       <View style={{alignItems: 'center'}}>
-        <Image style={style.image} />
+        <Image style={style.image} source={{uri: details?.driver_image}} />
         <Text style={{flex: 1, marginTop: 10}}>
           Here is your driver and vehicle information
         </Text>
@@ -85,8 +93,18 @@ const DriverDetailsCard = ({details, maplink}) => {
         <Text style={{fontSize: 13, marginTop: 10}}>
           {details?.car_name}({details?.license_plate})
         </Text>
-        <Text style={{fontSize: 13, marginVertical: 10}}>{details?.phone}</Text>
+        <Text style={{fontSize: 13, marginVertical: 10, color: COLORS.green}}>
+          {details?.phone}
+        </Text>
       </View>
+      {status == 'waiting' && (
+        <TripContactDetails
+          phoneNumber={details?.phone}
+          whatsappNumber={details?.phone}
+          showNumber={false}
+        />
+      )}
+
       <TouchableOpacity
         onPress={() => Linking.openURL(maplink)}
         activeOpacity={0.7}
@@ -94,11 +112,97 @@ const DriverDetailsCard = ({details, maplink}) => {
         <Icon name="map-marker-outline" color={COLORS.primary} size={25} />
         <Text style={{fontSize: 13}}>View Directions</Text>
       </TouchableOpacity>
-    </View>
+    </TripDetailsCard>
   );
 };
 
+const DisplayDetails = ({driverStatus, status, tripDetails}) => {
+  //No Driver Avaliable
+  if (
+    tripDetails?.trip_details?.driver_available.toLowerCase?.() == 'no' &&
+    !tripDetails?.driver_details?.driver_id
+  ) {
+    return (
+      <TripDetailsCard>
+        <Text
+          style={{
+            fontSize: 13,
+            marginTop: 10,
+            textAlign: 'center',
+            color: COLORS.red,
+          }}>
+          Sorry, there is no driver available at this time! you can contact the
+          Local administrator below for a special trip arrangement
+        </Text>
+        <TripContactDetails
+          phoneNumber={tripDetails?.achan_details?.phone}
+          whatsappNumber={tripDetails?.achan_details?.phone}
+        />
+      </TripDetailsCard>
+    );
+  } else if (
+    tripDetails?.driver_details?.driver_id == '' ||
+    driverStatus == 'pending'
+  ) {
+    //Waiting for driver
+    return (
+      <TripDetailsCard>
+        <Text style={{fontSize: 13, marginTop: 10, textAlign: 'center'}}>
+          Your ride will be dispatched and sent to your location shortly.
+          Contact us below for more information
+        </Text>
+        <TripContactDetails
+          phoneNumber={tripDetails?.achan_details?.phone}
+          whatsappNumber={tripDetails?.achan_details?.phone}
+        />
+      </TripDetailsCard>
+    );
+  } else if (
+    tripDetails?.driver_details?.driver_id &&
+    driverStatus == 'active' &&
+    status != 'complete'
+  ) {
+    return (
+      <DriverDetailsCard
+        status={status}
+        details={tripDetails?.driver_details}
+        maplink={tripDetails?.trip_details?.maplink}
+      />
+    );
+  }
+
+  return null;
+};
+
+const DisplayLocation = ({tripDetails}) => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        marginVertical: 10,
+        paddingHorizontal: 40,
+      }}>
+      <Text
+        style={{
+          textAlign: 'center',
+          marginBottom: 5,
+          fontSize: 13,
+        }}>
+        From:{tripDetails?.trip_details?.from}
+      </Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 13,
+        }}>
+        To:{tripDetails?.trip_details?.to}
+      </Text>
+    </View>
+  );
+};
 const BookRideDetailsScreen = ({navigation, route}) => {
+  const isFocused = useIsFocused();
+
   const trip_id = route.params;
   const {data} = useSelector(state => state.userData);
   const [state, setState] = React.useState({
@@ -109,134 +213,118 @@ const BookRideDetailsScreen = ({navigation, route}) => {
   });
   const [tripDetails, setTripDetails] = React.useState('');
   const setTimeoutRef = React.useRef(null);
+  const driverStatus =
+    tripDetails?.trip_details?.driver_status?.toLowerCase?.();
+  const status = tripDetails?.trip_details?.status?.toLowerCase?.();
 
   React.useEffect(() => {
-    setState(prevState => ({...prevState, showPreloader: true}));
-    getTripDetails();
-    return () => {
+    if (isFocused) {
+      getTripDetails();
+    } else {
       clearTimeout(setTimeoutRef.current);
-    };
-  }, []);
+    }
+  }, [isFocused]);
   const getTripDetails = async () => {
     clearTimeout(setTimeoutRef.current);
+
     try {
-      const response = await fetchRequest('trip_details.php', state, false);
+      const response = await fetchRequest({
+        path: 'trip_details.php',
+        data: state,
+        displayMessage: false,
+      });
 
       if (response?.achan_details) {
         setTripDetails(response);
-        setState(prevState => ({...prevState, showPreloader: false}));
       } else {
-        navigation.goBack();
-        Alert.alert('Error', response?.status);
+        if (isFocused) {
+          Alert.alert('Error', 'Trip is completed');
+          navigation.goBack();
+        }
+        clearTimeout(setTimeoutRef.current);
       }
+    } catch (error) {
+      console.log(error);
     } finally {
       setTimeoutRef.current = setTimeout(() => getTripDetails(), 7000);
     }
   };
 
-  const cancelTrip = () => {
-    const cancel = async () => {
-      try {
-        const response = await fetchRequest('cancel_trip.php', state);
-        if (response.statuscode == '00') {
-          navigation.navigate('BookRideScreen');
-          Alert.alert('Success', 'Trip cancelled');
-          clearTimeout(setTimeoutRef.current);
-        } else {
-          Alert.alert('Error', response?.status);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  /* show empty page wen loading */
 
-    Alert.alert('Confirm', 'Cancel trip?', [
-      {text: 'Yes', onPress: cancel},
-      {text: 'No'},
-    ]);
-  };
-
-  const DisplayDetails = () => {
-    console.log(tripDetails);
-    if (
-      tripDetails?.trip_details?.driver_status?.toLowerCase?.() == 'active' &&
-      (tripDetails?.trip_details?.status?.toLowerCase?.() == 'active' ||
-        tripDetails?.trip_details?.status?.toLowerCase?.() == 'waiting')
-    ) {
-      return (
-        <DriverDetailsCard
-          details={tripDetails?.driver_details}
-          maplink={tripDetails?.trip_details?.maplink}
-        />
-      );
-    }
-    //Show waiting for driver
-    if (
-      tripDetails?.trip_details?.driver_status?.toLowerCase?.() != 'active' &&
-      tripDetails?.trip_details?.status?.toLowerCase?.() != 'complete'
-    ) {
-      return (
-        <View style={style.card}>
-          <ActivityIndicator size="large" color={COLORS.primary} />
-          <Text style={{flex: 1, textAlign: 'center', marginTop: 10}}>
-            Waiting for a Driver
-          </Text>
-        </View>
-      );
-    }
-
-    return null;
-  };
-
-  const DisplayLocation = () => {
-    if (
-      tripDetails?.trip_details?.driver_status?.toLowerCase?.() == 'active' &&
-      (tripDetails?.trip_details?.status?.toLowerCase?.() == 'active' ||
-        tripDetails?.trip_details?.status?.toLowerCase?.() == 'complete')
-    ) {
-      return (
-        <Text style={{flex: 1, textAlign: 'center', marginVertical: 10}}>
-          {tripDetails?.trip_details?.from}
-        </Text>
-      );
-    }
-    return null;
-  };
-
-  const ShowButton = () => {
-    if (
-      tripDetails?.trip_details?.driver_status?.toLowerCase?.() == 'pending' ||
-      (tripDetails?.trip_details?.driver_status?.toLowerCase?.() == 'active' &&
-        tripDetails?.trip_details?.status?.toLowerCase?.() == 'waiting')
-    ) {
-      return (
-        <Button
-          onPress={cancelTrip}
-          title="Cancel Trip"
-          style={{backgroundColor: COLORS.red}}
-        />
-      );
-    }
-    return null;
-  };
+  if (!tripDetails) {
+    return <PreLoader visible={true} />;
+  }
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.light}}>
-      <Header />
+      <Header rightButton={null} />
       <PreLoader visible={state.showPreloader} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <DisplayLocation />
-        <DisplayDetails />
+        <DisplayLocation
+          driverStatus={driverStatus}
+          status={status}
+          tripDetails={tripDetails}
+        />
+        <DisplayDetails
+          driverStatus={driverStatus}
+          status={status}
+          tripDetails={tripDetails}
+        />
+        {/* Show Trip cost */}
+        {status == 'complete' && (
+          <View>
+            <TripCost
+              showBoth={false}
+              minAmount={tripDetails?.trip_details?.total}
+              maxAmount={tripDetails?.trip_details?.total}
+            />
+            <Text style={{flex: 1, textAlign: 'center', paddingHorizontal: 20}}>
+              you can pay driver by cash or bank transfer
+            </Text>
+          </View>
+        )}
 
-        <TripCost details={tripDetails?.trip_details} />
-
+        {/* Show Button */}
         <View style={{marginHorizontal: 20}}>
-          <Text style={{flex: 1, textAlign: 'center'}}>
-            You can choose to pay with cash to your driver at the end of your
-            trip
-          </Text>
-          <ShowButton />
+          {status != 'complete' && (
+            <Text style={{flex: 1, textAlign: 'center'}}>
+              You can choose to pay with cash to your driver at the end of your
+              trip
+            </Text>
+          )}
+
+          <ShowButton
+            cancelTrip={() => cancelTrip(navigation, setTimeoutRef)}
+            status={status}
+            driverStatus={driverStatus}
+            navigation={navigation}
+            setTimeoutRef={setTimeoutRef}
+            state={state}
+            setState={setState}
+            tripDetails={tripDetails}
+          />
         </View>
+
+        {status == 'complete' && (
+          <View style={{paddingHorizontal: 20}}>
+            <Text
+              style={{
+                flex: 1,
+                textAlign: 'center',
+                color: COLORS.green,
+                fontSize: 18,
+                fontFamily: FONTS.bold,
+                marginTop: 10,
+              }}>
+              Trip Successful
+            </Text>
+            <Button
+              title="Home"
+              onPress={() => navigation.navigate('HomeScreen')}
+            />
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -250,7 +338,9 @@ const style = StyleSheet.create({
     backgroundColor: COLORS.white,
     elevation: 12,
     borderRadius: 10,
-    overflow: 'hidden',
+    shadowColor: COLORS.grey,
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
   },
   tripCostCon: {
     marginVertical: 20,
@@ -272,12 +362,11 @@ const style = StyleSheet.create({
   image: {
     height: 70,
     width: 70,
-    backgroundColor: COLORS.red,
-    borderRadius: 50,
+    borderRadius: 70,
   },
   directionIconCon: {
     height: 40,
-    backgroundColor: COLORS.background,
+    backgroundColor: COLORS.white,
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -285,6 +374,8 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
 });
 export default BookRideDetailsScreen;

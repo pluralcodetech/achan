@@ -11,6 +11,8 @@ const CustomInput = ({
   textArea,
   editable = true,
   inputStyle,
+  small,
+  style,
   ...props
 }) => {
   const [isFocus, setIsFocus] = React.useState(false);
@@ -20,10 +22,12 @@ const CustomInput = ({
       style={{
         flex: 1,
         marginBottom: 20,
+
+        ...style,
       }}>
       <View
         style={[
-          style.inputContainer,
+          styles.inputContainer,
           {
             borderWidth: 1,
             borderColor: error
@@ -33,6 +37,7 @@ const CustomInput = ({
               : COLORS.grey,
             height: textArea ? 100 : 50,
             backgroundColor: editable ? COLORS.white : COLORS.background,
+            paddingVertical: textArea ? 10 : 0,
           },
         ]}>
         <TextInput
@@ -43,12 +48,17 @@ const CustomInput = ({
             setIsFocus(true);
           }}
           onBlur={() => setIsFocus(false)}
-          style={{...inputStyle, ...style.input}}
+          style={{
+            ...inputStyle,
+
+            ...styles.input,
+            paddingHorizontal: small ? 10 : 20,
+          }}
           multiline={textArea}
           editable={editable}
         />
       </View>
-      {error && (
+      {error && !small && (
         <Text style={{fontSize: 10, marginTop: 5, color: COLORS.red}}>
           {error}
         </Text>
@@ -57,16 +67,18 @@ const CustomInput = ({
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: COLORS.white,
     paddingHorizontal: 0,
+    justifyContent: 'center',
   },
   input: {
     color: COLORS.dark,
     fontFamily: FONTS.regular,
     fontSize: 11,
     paddingHorizontal: 20,
+    height: '100%',
   },
 });
 export default CustomInput;

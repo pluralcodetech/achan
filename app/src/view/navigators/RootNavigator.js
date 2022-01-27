@@ -17,6 +17,7 @@ import {dispatchUserDataToStore} from '../../helpers/auth/auth';
 import ListScreen from '../screens/ListScreen';
 import BookRideDetailsScreen from '../screens/BookRideDetailsScreen';
 import TripPreviewScreen from '../screens/TripPreviewScreen';
+import PlaceSearchScreen from '../screens/PlaceSearchScreen';
 
 const Stack = createStackNavigator();
 const RootNavigator = () => {
@@ -33,7 +34,7 @@ const RootNavigator = () => {
   React.useEffect(async () => {
     dispatchUserDataToStore();
     //Hide splashscreen after 4s
-    setTimeout(() => setShowSplashScreen(false), 0);
+    setTimeout(() => setShowSplashScreen(false), 4000);
   }, []);
 
   {
@@ -42,21 +43,16 @@ const RootNavigator = () => {
     ) : (
       <NavigationContainer>
         {/* Render custom message alert */}
-        {/* <MessageAlertModal
-          visible={messageAlertData?.visible}
-          title={messageAlertData?.title}
-          message={messageAlertData?.message}
-          option={messageAlertData?.option}
-          closeModal={closeMessageModal}
-        /> */}
+
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {loggedIn ? (
             <>
               <Stack.Screen name="Home" component={DrawerNavigator} />
+
               <Stack.Screen
                 options={{...TransitionPresets.ModalSlideFromBottomIOS}}
-                name="ListScreen"
-                component={ListScreen}
+                name="PlaceSearchScreen"
+                component={PlaceSearchScreen}
               />
               <Stack.Screen
                 name="TripPreviewScreen"
@@ -74,6 +70,11 @@ const RootNavigator = () => {
               <Stack.Screen name="OtpScreen" component={OtpScreen} />
             </>
           )}
+          <Stack.Screen
+            options={{...TransitionPresets.ModalSlideFromBottomIOS}}
+            name="ListScreen"
+            component={ListScreen}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );

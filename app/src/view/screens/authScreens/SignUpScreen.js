@@ -20,9 +20,11 @@ const SignUpScreen = ({navigation}) => {
     name: '',
     email: '',
     phone: '',
+    countrycode: '+234',
     showPreloader: false,
   });
   const [error, setError] = React.useState({});
+  const [selectedCountryCode, setSelectedCountryCode] = React.useState('+234');
 
   const signUp = async () => {
     //Validate individual input
@@ -45,7 +47,7 @@ const SignUpScreen = ({navigation}) => {
       setState(prevState => ({...prevState, showPreloader: true}));
 
       try {
-        const data = await fetchRequest('signup.php', state);
+        const data = await fetchRequest({path: 'signup.php', data: state});
         if (data.statuscode == '00') {
           Alert.alert('Success', data.status);
           //Send user to login screen
@@ -63,12 +65,12 @@ const SignUpScreen = ({navigation}) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
-        paddingHorizontal: 20,
       }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             alignItems: 'center',
+            paddingHorizontal: 20,
           }}>
           <PreLoader visible={state.showPreloader} />
           <Image source={assets.Logo} style={style.image} />
@@ -85,12 +87,27 @@ const SignUpScreen = ({navigation}) => {
               error={error.name}
               onFocus={() => setError({...error, name: null})}
             />
-            <CustomInput
-              onChangeText={text => setState({...state, phone: text})}
-              placeholder="Phone Number"
-              error={error.phone}
-              onFocus={() => setError({...error, phone: null})}
-            />
+
+            <View style={{flexDirection: 'row', width: '100%'}}>
+              <CustomInput
+                small
+                style={{width: 50, flex: 0, marginRight: 5}}
+                value={selectedCountryCode}
+                onFocus={() => {
+                  navigation.navigate('ListScreen', {
+                    items: countryCode,
+                    onChange: value => setSelectedCountryCode(value?.dial_code),
+                  });
+                }}
+              />
+              <CustomInput
+                keyboardType="numeric"
+                onChangeText={text => setState({...state, phone: text})}
+                placeholder="Phone Number"
+                error={error.phone}
+                onFocus={() => setError({...error, phone: null})}
+              />
+            </View>
             <CustomInput
               onChangeText={text => setState({...state, email: text})}
               placeholder="Email"

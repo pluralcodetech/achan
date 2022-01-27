@@ -3,12 +3,13 @@ import {API} from '../conts/api';
 import MESSAGES from '../conts/messages';
 import FormData from 'form-data';
 
-const fetchRequest = async (
+const fetchRequest = async ({
   path,
-  data,
-  displayMessage = true,
+  data = {},
   method = 'POST',
-) => {
+  showPreloader = true,
+  displayMessage = true,
+}) => {
   let response;
 
   try {

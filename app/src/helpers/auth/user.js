@@ -14,8 +14,11 @@ const getAndUpdateUserData = async () => {
       passenger_id: data?.passenger_id,
       code: data?.code,
     };
-    const response = await fetchRequest('dashboard.php', reqData, false);
-    console.log(response);
+    const response = await fetchRequest({
+      path: 'dashboard.php',
+      data: reqData,
+      displayMessage: false,
+    });
 
     if (response.statuscode == '00') {
       if (loggedIn) {

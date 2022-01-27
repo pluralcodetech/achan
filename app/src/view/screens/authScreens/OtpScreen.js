@@ -18,12 +18,13 @@ import fetchRequest from '../../../helpers/fetchRequest';
 import {updateUserData} from '../../../helpers/auth/auth';
 
 const OtpScreen = ({navigation, route}) => {
-  const {phone} = route.params;
+  const {phone} = route.params || {};
   const [state, setState] = React.useState({
     phone,
     otp: '',
     code: '',
     showPreloader: false,
+    countrycode: '+234',
   });
   const [error, setError] = React.useState({});
   const verifyOtp = async () => {
@@ -39,7 +40,7 @@ const OtpScreen = ({navigation, route}) => {
       setState(prevState => ({...prevState, showPreloader: true}));
 
       try {
-        const data = await fetchRequest('login.php', state);
+        const data = await fetchRequest({path: 'login.php', data: state});
         console.log(phone);
         if (data.statuscode == '00') {
           const userData = {
@@ -65,12 +66,12 @@ const OtpScreen = ({navigation, route}) => {
       style={{
         flex: 1,
         backgroundColor: COLORS.background,
-        paddingHorizontal: 20,
       }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             alignItems: 'center',
+            paddingHorizontal: 20,
           }}>
           <PreLoader visible={state.showPreloader} />
           <Image source={assets.Logo} style={style.image} />
