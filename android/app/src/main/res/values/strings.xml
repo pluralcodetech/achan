@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AchanPassengerApp</string>
+     <string name="CodePushDeploymentKey" moduleConfig="true">mjvyRmy87KGsclaaYtznvqAIgbtEeXP_gGg2Y</string>
 </resources>

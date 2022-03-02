@@ -43,7 +43,7 @@ const BookRideScreen = ({navigation, route}) => {
         data: {state: state?.name.toLowerCase?.()},
         displayMessage: false,
       });
-      console.log(response);
+
       if (response?.airports) {
         const filteredAirPorts = (response?.airports ?? []).map(item => ({
           ...item,
@@ -92,11 +92,11 @@ const BookRideScreen = ({navigation, route}) => {
           path: 'trip_preview.php',
           data: bookingDetails,
         });
-        console.log(response, 'res....');
+        console.log(response);
+
         if (response?.statuscode == '00') {
           navigation.navigate('TripPreviewScreen', {
             bookingDetails: {...bookingDetails, ...response},
-            resetBookRideScreen,
           });
         } else {
           Alert.alert('Error', response?.status);
@@ -126,9 +126,7 @@ const BookRideScreen = ({navigation, route}) => {
               <CustomInput
                 placeholder="Select state"
                 value={seletedState}
-                onChangeText={value => {
-                  console.log(value);
-                }}
+                onChangeText={value => {}}
                 onFocus={() => {
                   navigation.navigate('ListScreen', {
                     items: listOfstates,

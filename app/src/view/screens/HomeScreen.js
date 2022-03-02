@@ -16,6 +16,7 @@ import Header from '../components/Layouts/Header';
 import ListItem from '../components/ListItem';
 import Text from '../components/Text';
 import {useIsFocused} from '@react-navigation/native';
+import SmallCards from '../components/SmallCards';
 
 const MenuBtn = ({item, navigation}) => {
   return (
@@ -54,6 +55,16 @@ const HomeScreen = ({navigation}) => {
     {name: 'Profile', screen: 'ProfileScreen', icon: 'account-outline'},
     {name: 'Book', screen: 'BookRideScreen', icon: 'taxi'},
   ];
+  const cardList = [
+    {
+      title: 'Book an Airport Taxi',
+      image: require('../../assets/images/background2.png'),
+    },
+    {
+      title: 'Where would you like us to take you?',
+      image: require('../../assets/images/background1.png'),
+    },
+  ];
 
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -86,6 +97,16 @@ const HomeScreen = ({navigation}) => {
         <View style={{flexDirection: 'row', justifyContent: 'center'}}>
           {menuList.map((item, index) => (
             <MenuBtn item={item} key={index} navigation={navigation} />
+          ))}
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: 20,
+          }}>
+          {cardList.map((item, index) => (
+            <SmallCards data={item} key={'card' + index} />
           ))}
         </View>
         <View style={{marginTop: 20}}>

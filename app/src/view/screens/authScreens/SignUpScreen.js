@@ -15,12 +15,12 @@ import PreLoader from '../../components/loaders/PreLoader';
 import assets from '../../../conts/assets';
 import Button from '../../components/buttons/Button';
 import fetchRequest from '../../../helpers/fetchRequest';
+import countryCode from '../../../conts/countryCode';
 const SignUpScreen = ({navigation}) => {
   const [state, setState] = React.useState({
     name: '',
     email: '',
     phone: '',
-    countrycode: '+234',
     showPreloader: false,
   });
   const [error, setError] = React.useState({});
@@ -47,7 +47,10 @@ const SignUpScreen = ({navigation}) => {
       setState(prevState => ({...prevState, showPreloader: true}));
 
       try {
-        const data = await fetchRequest({path: 'signup.php', data: state});
+        const data = await fetchRequest({
+          path: 'signup.php',
+          data: {...state, countrycode: selectedCountryCode},
+        });
         if (data.statuscode == '00') {
           Alert.alert('Success', data.status);
           //Send user to login screen

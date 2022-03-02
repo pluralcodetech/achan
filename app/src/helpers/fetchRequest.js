@@ -32,7 +32,9 @@ const fetchRequest = async ({
       });
     }
 
-    const res = await response.json();
+    const r = await response?.text();
+    console.log(r);
+    const res = JSON.parse(r.trim?.());
     return res;
   } catch (error) {
     displayMessage && Alert.alert('Error', MESSAGES.error);

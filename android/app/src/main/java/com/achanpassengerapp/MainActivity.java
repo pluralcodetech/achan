@@ -1,4 +1,4 @@
-package com.achanpassengerapp;
+package com.watchout.achanpassenger;
 
 import com.facebook.react.ReactActivity;
 

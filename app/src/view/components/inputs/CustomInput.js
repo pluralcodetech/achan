@@ -22,7 +22,6 @@ const CustomInput = ({
       style={{
         flex: 1,
         marginBottom: 20,
-
         ...style,
       }}>
       <View

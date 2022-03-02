@@ -238,8 +238,8 @@ const BookRideDetailsScreen = ({navigation, route}) => {
         setTripDetails(response);
       } else {
         if (isFocused) {
-          Alert.alert('Error', 'Trip is completed');
-          navigation.goBack();
+          // Alert.alert('Error', 'Trip is completed');
+          // navigation.goBack();
         }
         clearTimeout(setTimeoutRef.current);
       }

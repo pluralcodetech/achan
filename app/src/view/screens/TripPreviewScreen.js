@@ -23,23 +23,27 @@ import TripCost from '../components/TripCost';
 const TripPreviewScreen = ({navigation, route}) => {
   const {data} = useSelector(state => state.userData);
   const [state, setState] = React.useState({
+    phone: data?.phone,
     passenger_id: data?.passenger_id,
     showPreloader: false,
   });
-  const {bookingDetails, resetBookRideScreen} = route.params || {};
-  React.useEffect(() => {
-    return () => {
-      resetBookRideScreen?.();
-    };
-  }, []);
+  const {bookingDetails} = route.params || {};
 
   const bookRide = async () => {
     const book = async () => {
       setState(prevState => ({...prevState, showPreloader: true}));
+
       try {
         const response = await fetchRequest({
           path: 'book.php',
-          data: bookingDetails,
+          data: {
+            ...state,
+            state: bookingDetails?.state,
+            trip_to: bookingDetails?.trip_to,
+            trip_from: bookingDetails?.trip_from,
+            passenger_id: data?.passenger_id,
+            area: bookingDetails?.destination_area,
+          },
         });
 
         if (response?.statuscode == '00') {
@@ -50,13 +54,13 @@ const TripPreviewScreen = ({navigation, route}) => {
           Alert.alert('Error', response?.status);
         }
       } catch (error) {
+        console.log(error);
       } finally {
-        setState(prevState => ({...prevState, showPreloader: false}));
+        setState({...state, showPreloader: false});
       }
     };
-
     Alert.alert('Confirm', 'Book ride?', [
-      {text: 'Yes', onPress: () => book()},
+      {text: 'Yes', onPress: book},
       {
         text: 'No',
       },
